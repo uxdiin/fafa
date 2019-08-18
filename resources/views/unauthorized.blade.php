@@ -1,0 +1,1 @@
+Maaf anda tidak berhak
