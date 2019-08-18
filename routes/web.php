@@ -33,6 +33,12 @@ Route::prefix('admin')->group(function(){
     Route::post('category/edit','CategoryController@update')->name('category.edit');
     Route::delete('category/delete','CategoryController@destroy')->name('category.delete');
 
+    Route::get('transactions/index','TransactionController@index')->name('transactions.index');
+    Route::get('transactions-list','TransactionController@apiIndex')->name('transactions.list');
+    Route::post('transaction/edit','TransactionController@update')->name('transaction.edit');
+    Route::delete('transaction/delete','TransactionController@destroy')->name('transaction.delete');
+
+
     Route::get('/home','homeController@index')->name('home.index');
 });
 Route::prefix('users')->group(function(){

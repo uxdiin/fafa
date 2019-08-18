@@ -18,6 +18,7 @@ class CreateTransactionsTable extends Migration
             $table->unsignedInteger('total_balance');
             $table->unsignedInteger('id_shipping')->nullable();
             $table->unsignedInteger('id_user');
+            $table->string('payment_prove')->nullable();
             $table->foreign('id_user')->references('id')
             ->on('users')->onDelete('cascade');
             $table->timestamps();

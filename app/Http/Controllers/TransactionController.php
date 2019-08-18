@@ -16,18 +16,26 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index(){
+        return view('transactions.index');
+    }
     public function ApiIndex()
     {
         try{
             // $transactions = DB::table('transactions')->join('transaction_item','transactions.id','=','transaction_item.transaction_id')->select('transactions.*','transaction_item.*')->get();
-            $transactions = Transaction::All();
+            $transactions = DB::table('transactions')->join('users','transactions.id_user','=','users.id')->select('transactions.*','users.name as name')->get();
+            // $transactions = Transaction::All();
             $data  = [];
             foreach($transactions as $transaction){
                 $data[]=[
-
+                    'id'=>$transaction->id,
+                    'user_id'=>$transaction->id_user,
+                    'username'=>$transaction->name,
+                    'total_balance'=>$transaction->total_balance,
+                    'action' => '<a class="btn btn-outline-success btn-sm btn-edit" data-toggle="modal" style="border-radius:24px" data-target="#myModal">Edit/Show</a><a class="btn btn-outline-danger btn-sm btn-destroy" style="border-radius:24px" onClick="destroy()">Hapus</a>'
                 ];
             }
-            return response()->json($transaction);
+            return response()->json($data);
         }catch(Eception $e){
 
         }
