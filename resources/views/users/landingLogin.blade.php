@@ -103,7 +103,7 @@
                             </div>
                             <div class="modal-footer">
                                 <input type="number" readonly class="form-control col-md-4 total-balance">
-                                <button class="btn btn-outline-primary round">Check Out</button>
+                                <a href="users/checkout" class="btn btn-outline-primary round">Check Out</a>
                             </div>
                         </div>
                     </div>

@@ -30,7 +30,7 @@ class ItemPolicy
      */
     public function create(User $user)
     {
-        return $user->isAdmin;
+        return true;
     }
 
     /**
